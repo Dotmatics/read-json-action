@@ -1,16 +1,16 @@
 {
   "name": "read-json-action",
-  "version": "1.0.4",
-  "author": "zoexx, yujie",
+  "version": "1.0.0",
+  "author": "zoexx, yujie, MarkWilkinson",
   "description": "GitHub Action to load properties from a JSON file.",
   "main": "dist/index.js",
   "scripts": {
-    "build": "esbuild src/index.ts --bundle --platform=node --target=node16 --outfile=dist/index.js",
+    "build": "esbuild src/index.ts --bundle --platform=node --target=node24 --outfile=dist/index.js",
     "text": "act"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ActionsTools/read-json-action"
+    "url": "git+https://github.com/Dotmatics/read-json-action"
   },
   "keywords": [
     "actions",
