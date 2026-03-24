@@ -11,6 +11,7 @@ async function run() {
   let or_json = null;
 
   if(override_json) {
+    core.info("override_json present");
     try {
       let or_json = JSON.parse(override_json);
     } catch (error) {
