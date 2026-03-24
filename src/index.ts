@@ -6,7 +6,21 @@ const readFileAsync = util.promisify(fs.readFile);
 async function run() {
   const file_path: string = core.getInput("file_path");
   const prop_path: string = core.getInput("prop_path");
+  const override_json: string = core.getInput("overrides_json");
   let pathArr: string[] = [];
+  let or_json = null;
+
+  if(override_json) {
+    try {
+      let or_json = JSON.parse(override_json);
+    } catch (error) {
+      if (error instanceof Error) {
+        core.setFailed(error);
+      } else {
+        core.setFailed("Unable to parse Override JSON");
+      }
+    }
+  }
 
   if (prop_path) {
     pathArr = prop_path.split(".");
@@ -35,7 +49,11 @@ async function run() {
     }
     if (json && typeof json === "object") {
       for (const key in json) {
-        core.setOutput(key, json[key]);
+        let value: string = json[key];
+        if (or_json && or_json[key]) {
+            value = or_json[key]
+        }
+        core.setOutput(key, value);
       }
     } else if (json) {
       core.setOutput("value", json);

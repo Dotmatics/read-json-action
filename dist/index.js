@@ -2181,7 +2181,18 @@ var readFileAsync = import_util.default.promisify(import_fs.default.readFile);
 async function run() {
   const file_path = core.getInput("file_path");
   const prop_path = core.getInput("prop_path");
+  const override_json = core.getInput("overrides_json");
   let pathArr = [];
+  let or_json = null;
+  if (override_json) {
+    try {
+      let or_json2 = JSON.parse(override_json.trim());
+    } catch (error) {
+      if (error instanceof Error) {
+        core.setFailed(error);
+      }
+    }
+  }
   if (prop_path) {
     pathArr = prop_path.split(".");
   }
@@ -2204,7 +2215,11 @@ async function run() {
     }
     if (json && typeof json === "object") {
       for (const key in json) {
-        core.setOutput(key, json[key]);
+        let value = json[key];
+        if (or_json && or_json[key]) {
+          value = or_json[key];
+        }
+        core.setOutput(key, value);
       }
     } else if (json) {
       core.setOutput("value", json);

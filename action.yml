@@ -8,6 +8,9 @@ inputs:
   prop_path:
     required: false
     description: "e.g.: key1.key2"
+  overrides_json:
+    required: false
+    description: "JSON to declare Overrides"
 runs:
   using: "node24"
   main: "dist/index.js"
