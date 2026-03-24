@@ -27,6 +27,23 @@ Get properties
     echo ${{steps.json_properties.outputs.version}}
 ```
 
+Get properties with overrides
+
+```yaml
+---
+- name: get properties
+  id: json_properties
+  uses: ActionsTools/read-json-action@main
+  with:
+    file_path: "package.json"
+    overrides_json: '{"name":"Some Other Name","author":"Alf Garnett","version":"99.99.99"}'
+
+- run: |
+    echo ${{steps.json_properties.outputs.name}}
+    echo ${{steps.json_properties.outputs.author}}
+    echo ${{steps.json_properties.outputs.version}}
+```
+
 Get a specified property **value** with `prop_path`
 
 ```yaml
