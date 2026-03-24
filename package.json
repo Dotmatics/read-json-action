@@ -1,6 +1,6 @@
 {
   "name": "read-json-action",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "zoexx, yujie, MarkWilkinson",
   "description": "GitHub Action to load properties from a JSON file.",
   "main": "dist/index.js",
