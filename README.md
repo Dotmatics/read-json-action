@@ -4,6 +4,10 @@ Read JSON file and set properties to `output` of github action `steps`.
 
 **This forked repo support json array comparing to the upper one.** An example can be find [here](https://github.com/ActionsTool/DockerImageBuilder/blob/main/.github/workflows/sharelatex.yml).
 
+**For Dotmatics People**
+
+This repo is a Github Action required by the Github Action Workflows in https://github.com/Dotmatics/TestAutomation-workflows
+
 ## Usage
 
 Examples:
