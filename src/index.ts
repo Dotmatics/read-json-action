@@ -12,10 +12,10 @@ async function run() {
 
   if(override_json) {
     try {
-      core.info("parsing override json");
+      core.debug("parsing override json");
       or_json = JSON.parse(override_json);
-      core.info("override json below");
-      core.info(or_json.toString());
+      core.debug("override json below");
+      core.debug(or_json.toString());
     } catch (error) {
       if (error instanceof Error) {
         core.setFailed(error);
@@ -55,7 +55,7 @@ async function run() {
         let value: string = json[key];
         if (or_json && or_json[key]) {
             value = or_json[key]
-            core.info("overriding "+key+" with "+value);
+            core.debug("overriding "+key+" with "+value);
         }
         core.setOutput(key, value);
       }
