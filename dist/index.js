@@ -2217,9 +2217,12 @@ async function run() {
       }, json);
     }
     if (json && typeof json === "object") {
+      core.info("was object");
       for (const key in json) {
+        core.info("key=" + key);
         let value = json[key];
         if (or_json && or_json[key]) {
+          core.info("overriding " + key + " with " + value);
           value = or_json[key];
         }
         core.setOutput(key, value);
