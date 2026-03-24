@@ -2222,8 +2222,8 @@ async function run() {
       for (const key in json) {
         let value = json[key];
         if (or_json && or_json[key]) {
-          core.info("overriding " + key + " with " + value);
           value = or_json[key];
+          core.info("overriding " + key + " with " + value);
         }
         core.setOutput(key, value);
       }
