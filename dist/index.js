@@ -2186,7 +2186,10 @@ async function run() {
   let or_json = null;
   if (override_json) {
     try {
-      let or_json2 = JSON.parse(override_json);
+      core.info("parsing override json");
+      or_json = JSON.parse(override_json);
+      core.info("override json below");
+      core.info(or_json);
     } catch (error) {
       if (error instanceof Error) {
         core.setFailed(error);
@@ -2219,7 +2222,6 @@ async function run() {
       for (const key in json) {
         let value = json[key];
         core.info("override json=" + or_json);
-        core.info("override=" + or_json[key]);
         if (or_json && or_json[key]) {
           core.info("overriding " + key + " with " + value);
           value = or_json[key];
