@@ -11,7 +11,6 @@ async function run() {
   let or_json = null;
 
   if(override_json) {
-    core.info("override_json present");
     try {
       let or_json = JSON.parse(override_json);
     } catch (error) {
@@ -49,10 +48,10 @@ async function run() {
       );
     }
     if (json && typeof json === "object") {
-      core.info("was object");
       for (const key in json) {
-        core.info("key="+key);
         let value: string = json[key];
+        core.info("override json="+or_json);
+        core.info("override="+or_json[key]);
         if (or_json && or_json[key]) {
             core.info("overriding "+key+" with "+value);
             value = or_json[key]
