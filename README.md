@@ -18,7 +18,7 @@ Get properties
 ---
 - name: get properties
   id: json_properties
-  uses: ActionsTools/read-json-action@main
+  uses: Dotmatics/read-json-action@main
   with:
     file_path: "package.json"
 
@@ -33,7 +33,7 @@ Get properties with overrides
 ---
 - name: get properties
   id: json_properties
-  uses: ActionsTools/read-json-action@main
+  uses: Dotmatics/read-json-action@main
   with:
     file_path: "package.json"
     overrides_json: '{"name":"Some Other Name","author":"Alf Garnett","version":"99.99.99"}'
@@ -50,7 +50,7 @@ Get a specified property **value** with `prop_path`
 ---
 - name: get specified property
   id: repository_type
-  uses: ActionsTools/read-json-action@main
+  uses: Dotmatics/read-json-action@main
   with:
     file_path: "package.json"
     prop_path: "repository.type"
