@@ -55,7 +55,7 @@ async function run() {
         let value: string = json[key];
         if (or_json && or_json[key]) {
             value = or_json[key]
-            core.debug("overriding "+key+" with "+value);
+            core.info("Overriding "+key+" with "+value);
         }
         core.setOutput(key, value);
       }
