@@ -39,7 +39,7 @@ jobs:
       uses: ./
       with: 
         file_path: 'package.json'
-        overrides_json: '{"name","Alf Garnett"}'
+        overrides_json: '{"name":"Alf Garnett"}'
 
     - run: |
         echo ${{steps.json_properties.outputs.name}}
