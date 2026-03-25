@@ -42,4 +42,4 @@ jobs:
         overrides_json: '{"name":"Alf Garnett"}'
 
     - run: |
-        echo ${{steps.json_properties.outputs.name}}
+        echo ${{steps.override-property.outputs.name}}
