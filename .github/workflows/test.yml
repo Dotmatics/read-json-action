@@ -34,3 +34,12 @@ jobs:
     - run: |
         echo ${{steps.repository_type.outputs.value}}
 
+    - name: override specific property
+      id: override-property
+      uses: ./
+      with: 
+        file_path: 'package.json'
+        overrides_json: '{"name","Alf Garnett"}'
+
+    - run: |
+        echo ${{steps.json_properties.outputs.name}}
